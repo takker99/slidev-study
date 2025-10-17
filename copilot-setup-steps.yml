@@ -1,0 +1,208 @@
+# Copilot Setup Steps for Slidev Study Project
+# このファイルは開発環境のセットアップ手順を定義します
+
+name: Slidev Study Development Environment Setup
+description: |
+  研究発表スライドをSlidevで作成するための開発環境を構築します。
+  pnpm、Slidev、Biomeなどの必要なツールをインストールします。
+
+prerequisites:
+  - name: Node.js
+    version: ">=18.0.0"
+    description: Node.jsランタイム環境
+    check_command: "node --version"
+    install_url: "https://nodejs.org/"
+  
+  - name: pnpm
+    version: ">=8.0.0"
+    description: 高速で効率的なパッケージマネージャー
+    check_command: "pnpm --version"
+    install_command: "npm install -g pnpm"
+    install_url: "https://pnpm.io/installation"
+
+setup_steps:
+  - step: 1
+    name: 依存関係のインストール
+    description: プロジェクトに必要なパッケージをインストールします
+    commands:
+      - command: "pnpm install"
+        description: "package.jsonに記載された依存関係をインストール"
+        working_directory: "."
+        expected_outcome: "node_modules/フォルダが作成され、依存関係がインストールされる"
+    
+  - step: 2
+    name: 開発環境の確認
+    description: インストールされたツールが正しく動作するか確認します
+    commands:
+      - command: "pnpm --version"
+        description: "pnpmのバージョンを確認"
+      - command: "pnpm biome --version"
+        description: "Biomeが正しくインストールされているか確認"
+      - command: "pnpm slidev --version"
+        description: "Slidevが正しくインストールされているか確認"
+    expected_outcome: "各コマンドがバージョン番号を返す"
+
+  - step: 3
+    name: コードの整形・リント
+    description: 既存のコードをBiomeで整形します
+    commands:
+      - command: "pnpm format"
+        description: "Biomeでコードを自動整形"
+      - command: "pnpm lint"
+        description: "Biomeでコードをチェック"
+    expected_outcome: "コードがBiomeのルールに従って整形される"
+
+  - step: 4
+    name: 開発サーバーの起動
+    description: Slidevの開発サーバーを起動してスライドをプレビューします
+    commands:
+      - command: "pnpm dev"
+        description: "開発サーバーを起動（http://localhost:3030）"
+        background: true
+        expected_port: 3030
+    expected_outcome: "ブラウザでhttp://localhost:3030にアクセスするとスライドが表示される"
+    notes: |
+      - 開発サーバーはホットリロード機能付き
+      - slides.mdを編集すると自動的に反映される
+      - 終了するには Ctrl+C を押す
+
+  - step: 5
+    name: ビルドの確認
+    description: プロダクション用のビルドが正しく動作するか確認します
+    commands:
+      - command: "pnpm build"
+        description: "SPAとしてビルド"
+        working_directory: "."
+        timeout: 120
+    expected_outcome: "dist/フォルダにビルド成果物が生成される"
+
+development_workflow:
+  - name: 日常的な開発フロー
+    steps:
+      - "pnpm dev で開発サーバーを起動"
+      - "slides.md を編集"
+      - "ブラウザで自動リロードされた内容を確認"
+      - "pnpm lint:fix でコードを整形"
+      - "変更をコミット"
+  
+  - name: プレゼンテーションの準備
+    steps:
+      - "slides.md を最終調整"
+      - "pnpm build でビルド"
+      - "pnpm export でPDFをエクスポート（オプション）"
+      - "dist/ フォルダをホスティングサービスにデプロイ"
+
+common_issues:
+  - issue: "pnpm: command not found"
+    solution: "npm install -g pnpm を実行してpnpmをインストール"
+  
+  - issue: "ポート3030が既に使用されている"
+    solution: |
+      - 既存のプロセスを停止する
+      - または slidev --port 3031 で別のポートを指定
+  
+  - issue: "ビルドエラーが発生"
+    solution: |
+      - node_modules を削除して pnpm install を再実行
+      - Node.jsのバージョンを確認（18以上が必要）
+  
+  - issue: "スライドが表示されない"
+    solution: |
+      - slides.md の構文を確認
+      - ブラウザのコンソールでエラーを確認
+      - 開発サーバーのログを確認
+
+useful_commands:
+  development:
+    - command: "pnpm dev"
+      description: "開発サーバー起動"
+    - command: "pnpm dev --open"
+      description: "開発サーバー起動とブラウザ自動オープン"
+    - command: "pnpm dev --port 3031"
+      description: "別のポートで開発サーバー起動"
+  
+  building:
+    - command: "pnpm build"
+      description: "プロダクションビルド"
+    - command: "pnpm export"
+      description: "PDFエクスポート"
+    - command: "pnpm export --output presentation.pdf"
+      description: "指定したファイル名でPDFエクスポート"
+  
+  code_quality:
+    - command: "pnpm lint"
+      description: "リントチェック"
+    - command: "pnpm lint:fix"
+      description: "リント問題の自動修正"
+    - command: "pnpm format"
+      description: "コード整形"
+
+environment_variables:
+  - name: "SLIDEV_THEME"
+    description: "使用するテーマを指定"
+    default: "default"
+    example: "SLIDEV_THEME=seriph pnpm dev"
+  
+  - name: "PORT"
+    description: "開発サーバーのポート番号"
+    default: "3030"
+    example: "PORT=8080 pnpm dev"
+
+recommended_vscode_extensions:
+  - name: "Biome"
+    id: "biomejs.biome"
+    description: "Biomeの統合サポート"
+  
+  - name: "Slidev"
+    id: "antfu.slidev"
+    description: "Slidevの構文ハイライトとプレビュー"
+  
+  - name: "Markdown All in One"
+    id: "yzhang.markdown-all-in-one"
+    description: "Markdown編集支援"
+
+resources:
+  - name: "Slidev公式ドキュメント"
+    url: "https://sli.dev"
+    description: "Slidevの使い方とAPI"
+  
+  - name: "Slidev GitHub"
+    url: "https://github.com/slidevjs/slidev"
+    description: "ソースコードとissues"
+  
+  - name: "Biome公式サイト"
+    url: "https://biomejs.dev"
+    description: "Biomeの設定とルール"
+  
+  - name: "pnpm公式サイト"
+    url: "https://pnpm.io"
+    description: "pnpmのドキュメント"
+
+project_structure:
+  files:
+    - path: "slides.md"
+      description: "メインのスライドファイル（Markdown形式）"
+    - path: "package.json"
+      description: "プロジェクト設定とスクリプト定義"
+    - path: "biome.json"
+      description: "Biomeの設定ファイル"
+    - path: "copilot-instructions.md"
+      description: "Copilotでの開発ガイドライン"
+    - path: "copilot-setup-steps.yml"
+      description: "このファイル：セットアップ手順の定義"
+  
+  directories:
+    - path: "node_modules/"
+      description: "依存パッケージ（自動生成、Gitで無視）"
+    - path: "dist/"
+      description: "ビルド成果物（自動生成、Gitで無視）"
+    - path: ".slidev/"
+      description: "Slidevのキャッシュ（自動生成、Gitで無視）"
+
+notes: |
+  このプロジェクトは、研究発表スライドをSlidevで作成する技術検証を目的としています。
+  PowerPointなどの従来のツールで作成していたスライドを、どの程度Slidevで再現できるかを
+  検証することが主な目標です。
+  
+  開発環境のセットアップは上記の手順に従ってください。
+  問題が発生した場合は、common_issuesセクションを参照してください。
