@@ -7,9 +7,9 @@
 
 <script setup lang="ts">
 defineProps<{
-  title: string
-  sectionNumber?: number
-}>()
+	title: string;
+	sectionNumber?: number;
+}>();
 </script>
 
 <style scoped>

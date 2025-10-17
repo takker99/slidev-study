@@ -16,12 +16,12 @@
 
 <script setup lang="ts">
 defineProps<{
-  title: string
-  subtitle?: string
-  author?: string
-  affiliation?: string
-  date?: string
-}>()
+	title: string;
+	subtitle?: string;
+	author?: string;
+	affiliation?: string;
+	date?: string;
+}>();
 </script>
 
 <style scoped>
