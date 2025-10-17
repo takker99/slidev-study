@@ -1,0 +1,27 @@
+{
+	"name": "slidev-study",
+	"version": "1.0.0",
+	"description": "slidevの技術検証。slidevでどの程度研究発表向けスライドをデザインできるか検証する。",
+	"type": "module",
+	"scripts": {
+		"dev": "slidev",
+		"build": "slidev build",
+		"export": "slidev export",
+		"lint": "biome check .",
+		"lint:fix": "biome check --write .",
+		"format": "biome format --write ."
+	},
+	"keywords": [
+		"slidev",
+		"presentation",
+		"slides"
+	],
+	"author": "",
+	"license": "ISC",
+	"packageManager": "pnpm@10.18.3",
+	"devDependencies": {
+		"@biomejs/biome": "^2.2.6",
+		"@slidev/cli": "^52.2.5",
+		"@slidev/theme-default": "^0.25.0"
+	}
+}
