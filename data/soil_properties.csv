@@ -1,0 +1,6 @@
+Material,Density_g_cm3,WaterContent_percent,PlasticLimit,LiquidLimit
+Natural Soil,1.65,28.5,22.3,45.6
+5% Slag Modified,1.72,24.8,25.1,48.2
+10% Slag Modified,1.78,21.2,27.5,50.8
+15% Slag Modified,1.84,18.6,29.8,53.4
+20% Slag Modified,1.89,16.3,31.2,55.1
