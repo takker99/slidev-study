@@ -1,5 +1,5 @@
 <template>
-  <div class="chart-container" :style="{ width: width, height: height }">
+  <div class="chart-container" :style="{ width: width, height: height }" role="img" :aria-label="title || 'Scatter chart visualization'">
     <Scatter :data="chartData" :options="chartOptions" />
   </div>
 </template>
@@ -13,6 +13,8 @@ import {
 	Title,
 	Tooltip,
 } from "chart.js";
+// biome-ignore lint/correctness/noUnusedImports: Used in template
+import { Scatter } from "vue-chartjs";
 
 ChartJS.register(Title, Tooltip, Legend, PointElement, LinearScale);
 
@@ -33,7 +35,8 @@ const props = defineProps<{
 	xAxisLabel?: string;
 }>();
 
-const _chartData = {
+// biome-ignore lint/correctness/noUnusedVariables: Used in template
+const chartData = {
 	datasets: props.data.datasets.map((dataset) => ({
 		...dataset,
 		backgroundColor: dataset.backgroundColor || "rgba(54, 162, 235, 0.7)",
@@ -42,7 +45,8 @@ const _chartData = {
 	})),
 };
 
-const _chartOptions = {
+// biome-ignore lint/correctness/noUnusedVariables: Used in template
+const chartOptions = {
 	responsive: true,
 	maintainAspectRatio: false,
 	plugins: {

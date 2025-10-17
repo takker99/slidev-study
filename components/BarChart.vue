@@ -1,5 +1,5 @@
 <template>
-  <div class="chart-container" :style="{ width: width, height: height }">
+  <div class="chart-container" :style="{ width: width, height: height }" role="img" :aria-label="title || 'Bar chart visualization'">
     <Bar :data="chartData" :options="chartOptions" />
   </div>
 </template>
@@ -14,6 +14,8 @@ import {
 	Title,
 	Tooltip,
 } from "chart.js";
+// biome-ignore lint/correctness/noUnusedImports: Used in template
+import { Bar } from "vue-chartjs";
 
 ChartJS.register(
 	Title,
@@ -42,7 +44,8 @@ const props = defineProps<{
 	xAxisLabel?: string;
 }>();
 
-const _chartData = {
+// biome-ignore lint/correctness/noUnusedVariables: Used in template
+const chartData = {
 	labels: props.data.labels,
 	datasets: props.data.datasets.map((dataset) => ({
 		...dataset,
@@ -52,7 +55,8 @@ const _chartData = {
 	})),
 };
 
-const _chartOptions = {
+// biome-ignore lint/correctness/noUnusedVariables: Used in template
+const chartOptions = {
 	responsive: true,
 	maintainAspectRatio: false,
 	plugins: {

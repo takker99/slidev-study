@@ -1,13 +1,13 @@
 <template>
-  <div class="two-column-container h-full flex flex-col p-12 bg-white">
+  <div class="two-column-container h-full flex flex-col p-12 bg-white" role="article">
     <div v-if="title" class="header mb-6 pb-4 border-b-2 border-blue-600">
       <h2 class="text-3xl font-bold text-gray-800">{{ title }}</h2>
     </div>
-    <div class="columns flex-1 flex gap-8">
-      <div class="column-left flex-1">
+    <div class="columns flex-1 flex gap-8" role="main">
+      <div class="column-left flex-1" role="region" aria-label="Left column content">
         <slot name="left" />
       </div>
-      <div class="column-right flex-1">
+      <div class="column-right flex-1" role="region" aria-label="Right column content">
         <slot name="right" />
       </div>
     </div>

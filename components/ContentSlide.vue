@@ -1,9 +1,9 @@
 <template>
-  <div class="content-slide-container h-full flex flex-col p-12 bg-white">
+  <div class="content-slide-container h-full flex flex-col p-12 bg-white" role="article">
     <div class="header mb-6 pb-4 border-b-2 border-blue-600">
       <h2 class="text-3xl font-bold text-gray-800">{{ title }}</h2>
     </div>
-    <div class="content flex-1 overflow-auto">
+    <div class="content flex-1 overflow-auto" role="main">
       <slot />
     </div>
   </div>
