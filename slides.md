@@ -10,6 +10,8 @@ title: 鉄鋼スラグを活用したカルシア改質土の実用化に向け�
 mdc: true
 ---
 
+<style src="./style.css"></style>
+
 <TitleSlide 
   title="鉄鋼スラグを活用したカルシア改質土の実用化に向けた土質特性の評価と品質管理に関する研究"
   author="研究者名"
@@ -71,13 +73,13 @@ layout: default
 <p class="text-sm leading-relaxed">カルシア改質土の<strong>基本的な土質特性</strong>を明らかにする</p>
 </div>
 
-<div class="bg-gradient-to-br from-green-500 to-green-600 p-6 rounded-lg text-white">
+<div class="bg-gradient-to-br from-green-700 to-green-600 p-6 rounded-lg text-white">
 <div class="text-4xl mb-4">📊</div>
 <h3 class="text-xl font-bold mb-2">目的 2</h3>
 <p class="text-sm leading-relaxed"><strong>品質管理手法</strong>を確立し実用化への道筋を示す</p>
 </div>
 
-<div class="bg-gradient-to-br from-purple-500 to-purple-600 p-6 rounded-lg text-white">
+<div class="bg-gradient-to-br from-purple-800 to-purple-700 p-6 rounded-lg text-white">
 <div class="text-4xl mb-4">🏗️</div>
 <h3 class="text-xl font-bold mb-2">目的 3</h3>
 <p class="text-sm leading-relaxed"><strong>実工事への適用性</strong>を実証的に評価する</p>
@@ -648,7 +650,7 @@ layout: default
 
 <div class="space-y-6">
 
-<div class="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-6 rounded-lg">
+<div class="bg-gradient-to-r from-blue-700 to-blue-600 text-white p-6 rounded-lg">
 <h3 class="text-2xl font-bold mb-3">🔬 学術的成果</h3>
 <div class="grid grid-cols-2 gap-4 text-lg">
 <div>
@@ -662,7 +664,7 @@ layout: default
 </div>
 </div>
 
-<div class="bg-gradient-to-r from-green-500 to-green-600 text-white p-6 rounded-lg">
+<div class="bg-gradient-to-r from-green-700 to-green-600 text-white p-6 rounded-lg">
 <h3 class="text-2xl font-bold mb-3">🏗️ 実用的成果</h3>
 <div class="grid grid-cols-2 gap-4 text-lg">
 <div>
@@ -676,7 +678,7 @@ layout: default
 </div>
 </div>
 
-<div class="bg-gradient-to-r from-purple-500 to-purple-600 text-white p-6 rounded-lg">
+<div class="bg-gradient-to-r from-purple-800 to-purple-700 text-white p-6 rounded-lg">
 <h3 class="text-2xl font-bold mb-3">🌍 社会的成果</h3>
 <div class="grid grid-cols-2 gap-4 text-lg">
 <div>

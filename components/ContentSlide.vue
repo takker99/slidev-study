@@ -1,7 +1,7 @@
 <template>
   <div class="content-slide-container h-full flex flex-col p-12 bg-white" role="article">
-    <div class="header mb-6 pb-4 border-b-2 border-blue-600">
-      <h2 class="text-3xl font-bold text-gray-800">{{ title }}</h2>
+    <div class="header mb-6 pb-4" style="border-bottom: 2px solid var(--color-border-primary);">
+      <h2 class="text-3xl font-bold" style="color: var(--color-text-primary);">{{ title }}</h2>
     </div>
     <div class="content flex-1 overflow-auto" role="main">
       <slot />
@@ -25,14 +25,17 @@ defineProps<{
 }
 
 .content :deep(li) {
-  @apply text-gray-700 leading-relaxed;
+  color: var(--color-text-secondary);
+  @apply leading-relaxed;
 }
 
 .content :deep(p) {
-  @apply text-xl text-gray-700 leading-relaxed mb-4;
+  @apply text-xl leading-relaxed mb-4;
+  color: var(--color-text-secondary);
 }
 
 .content :deep(strong) {
-  @apply text-blue-600 font-semibold;
+  color: var(--color-primary-600);
+  @apply font-semibold;
 }
 </style>
